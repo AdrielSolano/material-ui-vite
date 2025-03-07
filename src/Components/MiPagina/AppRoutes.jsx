@@ -6,6 +6,7 @@ import PageContact from './Contact/Contact'
 import PageAbout from './About/About'
 import HomePage from "../pages/HomePage.jsx";
 import NotFound from './NotFound'
+import PageDash from './dash/PageDash.jsx';
 
 
 export default function AppRoutes () {
@@ -22,6 +23,13 @@ export default function AppRoutes () {
             <Route path='/contact' element={<PageContact/>} />
             
             <Route path='*' element={<NotFound/>}/>
+
+            <Route patch='/detallesdash' element={<DetallesDash/>} />
+
+            <Route patch='pagedash' element={<PageDash/>} />
+
+            <Route patch='pagetrading' element={<PageTrading/>} />
+
         </Routes>
     )
 }
