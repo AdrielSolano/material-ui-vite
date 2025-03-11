@@ -7,6 +7,10 @@ import PageAbout from './About/About'
 import HomePage from "../pages/HomePage.jsx";
 import NotFound from './NotFound'
 import PageDash from './dash/PageDash.jsx';
+import DetallesDash from './dash/DetallesDash.jsx';
+import PageTrading from './dash/PageTrading.jsx';
+import DetalleComida from "../Pages/DetalleComida.jsx";
+
 
 
 export default function AppRoutes () {
@@ -21,15 +25,25 @@ export default function AppRoutes () {
             <Route path='/about' element={<PageAbout/>} />
 
             <Route path='/contact' element={<PageContact/>} />
+
+            <Route path="/dash">
+                <Route index element={<PageDash/>}/>
+
+                <Route path=':id' element={<DetallesDash/>}/>
+
+                <Route path='trading' element={<PageTrading/>}/>
+
+            </Route>
+
+            <Route path='/recetas'>
+                {/* Ruta principal de recetas */}
+                <Route index element={<HomePage/>}/>
+                {/* Ruta dinámica para mostrar el detalle de una receta */}
+                <Route path=':id' element={<DetalleComida/>}/>
+            </Route>
             
             <Route path='*' element={<NotFound/>}/>
-
-            <Route patch='/detallesdash' element={<DetallesDash/>} />
-
-            <Route patch='pagedash' element={<PageDash/>} />
-
-            <Route patch='pagetrading' element={<PageTrading/>} />
-
         </Routes>
+
     )
 }

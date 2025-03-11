@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid2';
 import { Button, InputBase, Paper } from '@mui/material';
 import { Search } from '@mui/icons-material';
-import ContenidoComida from './ContenidoComida';
+import ContenidoComida from '../Pages/ContenidoComida';
 
 export default function HomePage() {
   const [textobuscar, setTextoB] = useState('');

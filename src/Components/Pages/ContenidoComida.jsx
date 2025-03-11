@@ -1,7 +1,8 @@
 import React from 'react';
 import Grid from '@mui/material/Grid2';
-import { Paper, Typography, List, ListItem, ListItemText, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
+import { Paper, Typography, List, ListItem, ListItemText, Accordion, AccordionSummary, AccordionDetails, Button } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Link } from "react-router-dom";
 
 export default function ContenidoComida({ data }) {
     console.log('Datos desde Padre', data);
@@ -27,7 +28,10 @@ export default function ContenidoComida({ data }) {
                                     </Typography>
                                     <Typography variant="body1">Categoría: {receta.strCategory}</Typography>
                                     <Typography variant="body1">País: {receta.strArea}</Typography>
-
+                                    {/* Identificador único de la receta */}
+                                    <Typography variant="body1"  sx={{ textAlign: "center", marginBottom: "10px", fontSize: "12px" }}>
+                                        <strong>Id_Comida:</strong> {receta.idMeal} {/* AQUI ESTA RECETADATA */}
+                                    </Typography>
                                     <Accordion sx={{ marginTop: 2 }}>
                                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                                             <Typography variant="h6">Ingredientes</Typography>
@@ -48,7 +52,6 @@ export default function ContenidoComida({ data }) {
                                             </List>
                                         </AccordionDetails>
                                     </Accordion>
-
 
                                     <Accordion sx={{ marginTop: 2 }}>
                                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -76,6 +79,16 @@ export default function ContenidoComida({ data }) {
                                             </a>
                                         </Typography>
                                     )}
+
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        LinkComponent={Link}
+                                        to={`/recetas/${receta.idMeal}`}
+                                        sx={{ marginTop: "15px", width: "100%", fontSize: "16px" }}
+                                    >
+                                        Ver más
+                                    </Button>
                                 </Paper>
                             </Grid>
                         ))}

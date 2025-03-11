@@ -36,6 +36,7 @@ function ComponenteEncabezado() {
     setAnchorElUser(null);
   };
 
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -117,8 +118,8 @@ function ComponenteEncabezado() {
             <Button component={Link} to='/' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
                Home
             </Button>
-            <Button component={Link} to='/recetas' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
-               recetas
+            <Button component={Link} to='/recetas' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block', fontSize: '16px'}}>
+               Recetas
             </Button>
             <Button component={Link} to='/about' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
                About
