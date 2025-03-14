@@ -6,9 +6,9 @@ const PageHome = () => {
   return (
     <div className="page-home">
       <div className="page-home-content">
-        <h1>Bienvenido a nuestra cocina</h1>
-        <p>Descubre deliciosas recetas para cada ocasión y aprende a preparar platos irresistibles <tr/> con ingredientes frescos y fáciles de conseguir</p>
-        <p>¡Tu próxima comida perfecta está a solo un clic de distancia!"</p>
+        <h1>"Bienvenido a Mixología Express.</h1>
+        <p>Sumérgete en el mundo de los cócteles y descubre recetas únicas para cada ocasión. <tr/>  Aprende a preparar bebidas irresistibles, utilizando ingredientes frescos y técnicas fáciles de seguir.</p>
+        <p>¡Conviértete en el alma de la fiesta y eleva tus habilidades detrás de la barra, un cóctel a la vez!"</p>
         <Link to="/recetas">
           <button>Conocer más</button>
         </Link>

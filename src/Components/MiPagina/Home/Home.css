@@ -1,28 +1,28 @@
-/* Aseguramos que el div que contiene la imagen ocupe toda la pantalla */
 .page-home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ocupa toda la altura de la ventana */
-    width: 100vw;  /* Ocupa todo el ancho de la ventana */
-    /*background-image: url('https://img.freepik.com/foto-gratis/vista-superior-surtido-piramide-alimentos-reales_23-2150238927.jpg?semt=ais_hybrid');*/
-    background-size: cover; /* La imagen cubre toda la pantalla */
-    background-position: center; /* Centra la imagen */
-    position: relative;
-    filter: brightness(120%); /* Oscurecer ligeramente la imagen para mejor contraste */
-  }
-  
-  /* Capa de superposición para mejorar la legibilidad del texto */
-  .page-home::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* Fondo oscuro semitransparente */
-    z-index: -1; /* Aseguramos que la capa esté detrás del contenido */
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  width: 99vw;  /* Ocupa todo el ancho de la ventana */
+  background-image: url('https://img.freepik.com/foto-gratis/cocteles-arreglo-coctelera-club-nocturno_23-2149093603.jpg'); /* Fondo inspirado en cócteles */
+  background-size:cover; /* La imagen cubre toda la pantalla */
+  background-position: center; /* Centra la imagen */
+  position: relative;
+  filter: brightness(100%) saturate(120%); /* Mejora los colores para hacerlos más vivos */
+}
+
+/* Capa de superposición para mejor contraste */
+.page-home::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+  z-index: -1; /* Asegura que la capa esté detrás del contenido */
+}
+
   
   /* Estilo para el contenedor de texto */
   .page-home-content {
@@ -56,7 +56,7 @@
   
   /* Estilos del botón */
   .page-home-content button {
-    background-color: #3d7eef; 
+    background-color: #8a8809; 
     color: white;
     padding: 0.75rem 2rem;
     border-radius: 50px; /* Bordes redondeados para un diseño más limpio */
@@ -70,7 +70,7 @@
   }
   
   .page-home-content button:hover {
-    background-color: #939496; 
+    background-color: #959a51; 
     transform: translateY(-3px); /* Efecto sutil de elevación */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
   }

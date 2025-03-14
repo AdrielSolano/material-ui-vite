@@ -2,24 +2,24 @@ import React, { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid2';
 import { Button, InputBase, Paper } from '@mui/material';
 import { Search } from '@mui/icons-material';
-import ContenidoComida from '../Pages/ContenidoComida';
+import ContenidoCocktail from '../Pages/ContenidoCocktail';
 
 export default function HomePage() {
   const [textobuscar, setTextoB] = useState('');
-  const [datos, setDatos] = useState({ meals: [] });
+  const [datos, setDatos] = useState({ drinks: [] });
 
-  const obtenercomidapornombre = async () => {
+  const obtenerbebidapornombre = async () => {
     const buscar = textobuscar.trim();
     if (buscar === '') {
-      alert('Por favor ingrese un nombre de comida');
+      alert('Por favor ingrese un nombre de cóctel');
       return;
     }
 
     try {
-      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${buscar}`);
+      const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${buscar}`);
       const result = await response.json();
       console.log(result);
-      setDatos(result.meals ? { meals: result.meals } : { meals: [] });
+      setDatos(result.drinks ? { drinks: result.drinks } : { drinks: [] });
     } catch (error) {
       console.error('Error al obtener los datos:', error);
     }
@@ -28,7 +28,7 @@ export default function HomePage() {
   useEffect(() => {
     const obtenerdata = async () => {
       try {
-        const response = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=beef');
+        const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita');
         const result = await response.json();
         setDatos(result);
       } catch (error) {
@@ -52,8 +52,9 @@ export default function HomePage() {
         marginRight: 'auto'
       }}
       >
-        "Busca tu receta ideal y empieza a cocinar algo delicioso."
-      </h2>      <Grid container spacing={2} padding={4} justifyContent="center" alignItems="center">
+        "Busca tu cóctel ideal y empieza a preparar algo delicioso."
+      </h2>
+      <Grid container spacing={2} padding={4} justifyContent="center" alignItems="center">
         <Grid item xs={12} md={10}>
           <Paper
             component="form"
@@ -72,15 +73,15 @@ export default function HomePage() {
               sx={{
                 flex: 1,
                 fontSize: '18px',
-                padding: '10px',  
+                padding: '10px',
                 marginRight: '8px',
               }}
-              placeholder="Pon nombre de comida"
-              inputProps={{ 'aria-label': 'buscar comida' }}
+              placeholder="Pon nombre de cóctel"
+              inputProps={{ 'aria-label': 'buscar cóctel' }}
               onChange={(e) => setTextoB(e.target.value)}
             />
             <Button
-              onClick={obtenercomidapornombre}
+              onClick={obtenerbebidapornombre}
               variant="contained"
               color="primary"
               startIcon={<Search />}
@@ -90,9 +91,9 @@ export default function HomePage() {
                 fontSize: '16px',
                 textTransform: 'none',
                 borderRadius: '8px',
-                backgroundColor: '#1976d2',
+                backgroundColor: '#8a8809',
                 '&:hover': {
-                  backgroundColor: '#125aa7',
+                  backgroundColor: '#959a51',
                 },
                 padding: '8px 20px',
                 minWidth: '120px',
@@ -103,7 +104,7 @@ export default function HomePage() {
           </Paper>
         </Grid>
       </Grid>
-      <ContenidoComida data={datos.meals} />
+      <ContenidoCocktail data={datos.drinks} />
     </div>
   );
 }

@@ -9,7 +9,7 @@ import NotFound from './NotFound'
 import PageDash from './dash/PageDash.jsx';
 import DetallesDash from './dash/DetallesDash.jsx';
 import PageTrading from './dash/PageTrading.jsx';
-import DetalleComida from "../Pages/DetalleComida.jsx";
+import DetalleCocktail from "../Pages/DetalleCocktail.jsx";
 
 
 
@@ -39,7 +39,7 @@ export default function AppRoutes () {
                 {/* Ruta principal de recetas */}
                 <Route index element={<HomePage/>}/>
                 {/* Ruta dinámica para mostrar el detalle de una receta */}
-                <Route path=':id' element={<DetalleComida/>}/>
+                <Route path=':id' element={<DetalleCocktail/>}/>
             </Route>
             
             <Route path='*' element={<NotFound/>}/>
