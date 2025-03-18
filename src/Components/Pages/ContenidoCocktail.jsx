@@ -14,10 +14,11 @@ export default function ContenidoCocktail({ data }) {
                 !data || data.length === 0 ? (
                     <Typography variant='h4' color='initial'>No hay datos</Typography>
                 ) : (
-                    <Grid container padding={4} spacing={3} >
+                    <Grid container spacing={3} >
                         {data.map((cocktail, index) => (
-                            <Grid key={index} size={{ xs: 6, md: 4 }}>
-                                <Paper elevation={3} sx={{ padding: 2, borderRadius: 10 }}>
+                            <Grid key={index} size={{ xs: 6, md: 4 }} >
+                                <Paper elevation={3} sx={{ padding: 2, borderRadius: 10, backgroundColor: 'rgba(255, 255, 255, 0.9)',
+ }}>
                                     <img
                                         src={cocktail.strDrinkThumb}
                                         alt={cocktail.strDrink}

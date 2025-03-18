@@ -38,12 +38,16 @@ export default function DetalleCocktail() {
   }
 
   return (
-    <div style={{ width: '95%', margin: 'auto', textAlign: 'center' }}>
+    <div style={{
+      width: '100%', margin: 'auto', textAlign: 'center', background: 'radial-gradient(125% 125% at 50% 10%, #000 10%, #8a8809 100%)'
+    }}>
       <br />
       <Grid container spacing={2} justifyContent="center">
         {/* Columna para la imagen */}
-        <Grid size={{sm:12, md: 6}} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <Paper elevation={3} sx={{ padding: 2, borderRadius: 10 }}>
+        <Grid size={{ sm: 12, md: 6 }} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Paper elevation={3} sx={{
+            padding: 2, borderRadius: 10, backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          }}>
             <img
               src={cocktail.strDrinkThumb}
               alt={cocktail.strDrink}
@@ -51,9 +55,11 @@ export default function DetalleCocktail() {
             />
           </Paper>
         </Grid>
-        
-        <Grid size={{sm:12, md: 6}}>
-          <Paper elevation={3} sx={{ padding: 2, borderRadius: 10 }}>
+
+        <Grid size={{ sm: 12, md: 6 }}>
+          <Paper elevation={3} sx={{
+            padding: 2, borderRadius: 10, backgroundColor: 'rgba(255, 255, 255, 0.9)',
+ }}>
             <Typography variant="h5" sx={{ fontWeight: 'bold', marginTop: 1 }}>
               {cocktail.strDrink}
             </Typography>
@@ -63,52 +69,52 @@ export default function DetalleCocktail() {
             <Typography variant="body1" color="textSecondary" sx={{ textAlign: "center", marginBottom: "10px", fontSize: "20px" }}>
               <strong>Id_Cocktail:</strong> {cocktail.idDrink}
             </Typography>
-            
+
             <Accordion sx={{ marginTop: 2 }} defaultExpanded>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography variant="h6">Ingredientes</Typography>
+                <Typography variant="h6" >Ingredientes</Typography>
               </AccordionSummary>
               <AccordionDetails>
-          <List dense>
-            {Array.from({ length: 15 }).map((_, i) => {
-              const ingrediente = cocktail[`strIngredient${i + 1}`];
-              const cantidad = cocktail[`strMeasure${i + 1}`];
-              return (
-                ingrediente && ingrediente.trim() ? (
-            <ListItem key={i}>
-              <ListItemText primary={`• ${cantidad || ''} ${ingrediente}`} />
-            </ListItem>
-                ) : null
-              );
-            })}
-          </List>
+                <List dense>
+                  {Array.from({ length: 15 }).map((_, i) => {
+                    const ingrediente = cocktail[`strIngredient${i + 1}`];
+                    const cantidad = cocktail[`strMeasure${i + 1}`];
+                    return (
+                      ingrediente && ingrediente.trim() ? (
+                        <ListItem key={i}>
+                          <ListItemText primary={`• ${cantidad || ''} ${ingrediente}`} />
+                        </ListItem>
+                      ) : null
+                    );
+                  })}
+                </List>
               </AccordionDetails>
             </Accordion>
-            
+
             <Accordion sx={{ marginTop: 2 }} defaultExpanded>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography variant="h6">Instrucciones</Typography>
+                <Typography variant="h6">Instrucciones</Typography>
               </AccordionSummary>
               <AccordionDetails>
-          <Typography variant="body2" sx={{ textAlign: 'justify', whiteSpace: 'pre-line' }}>
-            {cocktail.strInstructions}
-          </Typography>
+                <Typography variant="body2" sx={{ textAlign: 'justify', whiteSpace: 'pre-line' }}>
+                  {cocktail.strInstructions}
+                </Typography>
               </AccordionDetails>
             </Accordion>
-            
+
             {cocktail.strVideo && (
               <Typography variant="body2" sx={{ marginTop: 2 }}>
-          <a href={cocktail.strVideo} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'blue', fontWeight: 'bold' }}>
-            Ver video en YouTube
-          </a>
+                <a href={cocktail.strVideo} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'blue', fontWeight: 'bold' }}>
+                  Ver video en YouTube
+                </a>
               </Typography>
             )}
-            
+
             {cocktail.strImageSource && (
               <Typography variant="body2" sx={{ marginTop: 1 }}>
-          <a href={cocktail.strImageSource} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'green' }}>
-            Fuente de la imagen
-          </a>
+                <a href={cocktail.strImageSource} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'green' }}>
+                  Fuente de la imagen
+                </a>
               </Typography>
             )}
           </Paper>

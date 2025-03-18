@@ -14,7 +14,8 @@ import { Link } from 'react-router';
 import { Typography } from '@mui/material';
 import logo from '../assets/1.png';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+// Updated pages array with "Categorias" added
+const pages = ['Home', 'Cocktails', 'Categorias', 'Galerias', 'About Us', 'Contact Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ComponenteEncabezado() {
@@ -40,21 +41,19 @@ function ComponenteEncabezado() {
     <AppBar position="static" sx={{ backgroundColor: '#8a8809' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* Logo para pantallas grandes */}
-          <img src={logo} alt="Logo" style={{ width: '60px', height: '60px', marginRight: '10px' }} />
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          {/* Logo con enlace a Home */}
+          <Box component={Link} to="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+            <img src={logo} alt="Logo" style={{ width: '60px', height: '60px', marginRight: '10px', cursor: 'pointer' }} />
             <Typography
               variant="h6"
               noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
                 fontFamily: 'monospace',
                 fontWeight: 600,
                 letterSpacing: '.2rem',
-                color: 'inherit',
+                color: 'white',
                 textDecoration: 'none',
               }}
             >
@@ -62,6 +61,7 @@ function ComponenteEncabezado() {
             </Typography>
           </Box>
 
+          {/* Menú responsive para móviles */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -90,27 +90,60 @@ function ComponenteEncabezado() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem 
+                  key={page} 
+                  onClick={handleCloseNavMenu}
+                  component={Link}
+                  to={page === 'Home' ? '/' : `/${page.toLowerCase().replace(/\s+/g, '')}`}
+                >
                   <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
 
-          <Box sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' } }}>
-            <Button component={Link} to='/' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
+          {/* Logo responsive para móviles */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'center' }}>
+            <Typography
+              variant="h6"
+              noWrap
+              component={Link}
+              to="/"
+              sx={{
+                fontFamily: 'monospace',
+                fontWeight: 600,
+                color: 'white',
+                textDecoration: 'none',
+              }}
+            >
+              Mixología Express
+            </Typography>
+          </Box>
+
+          {/* Espacio flexible para centrar el menú */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} />
+          
+          {/* Menú para pantallas grandes - centrado como en el diseño original */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <Button component={Link} to="/" onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
                Home
             </Button>
-            <Button component={Link} to='/recetas' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
-               Recetas
+            <Button component={Link} to="/recetas" onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
+               Cocktails
             </Button>
-            <Button component={Link} to='/about' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
-               About
+            <Button component={Link} to="/galerias" onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
+               Galerias
             </Button>
-            <Button component={Link} to='/contact' onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
-               Contact
+            <Button component={Link} to="/about" onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
+               About Us
+            </Button>
+            <Button component={Link} to="/contact" onClick={handleCloseNavMenu} sx={{my: 2, color: 'white', display: 'block'}}>
+               Contact Us
             </Button>
           </Box>
+          
+          {/* Espacio flexible para centrar el menú */}
+          <Box sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' } }} />
 
           {/* Avatar y menú de usuario */}
           <Box sx={{ flexGrow: 0 }}>
